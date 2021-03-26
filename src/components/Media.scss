@@ -1,0 +1,29 @@
+.screens {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  height: 25rem;
+
+  .local {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 1rem;
+  }
+
+  .remote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  .local {
+    .localVideo {
+      position: absolute;
+    }
+  }
+}

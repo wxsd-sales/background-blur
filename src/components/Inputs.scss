@@ -1,0 +1,46 @@
+.inputs {
+  width: 100%;
+  margin-top: 1rem;
+
+  .tokenSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .tokenInput {
+      height: 6rem;
+      width: 100%;
+
+      .md-input-container {
+        width: 100%;
+        padding-right: 2rem;
+      }
+
+      button {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .destSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .destInput {
+      width: 100%;
+      height: 6rem;
+
+      .md-input-container {
+        width: 33rem;
+        padding-right: 2rem;
+      }
+
+      button {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020", "dom"],
+    "target": "es2020",
+    "sourceMap": true,
+    "outDir": "docs",
+    "jsx": "react",
+    "noEmitOnError": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "typeRoots": [
+			"./types",
+		]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true,
+    "transpileOnly": true,
+    "useTranspileModule": true,
+    "reportFiles": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "files": [
+      "src/index.tsx"
+    ]
+  },
+}
