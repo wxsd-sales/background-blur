@@ -16,7 +16,7 @@
     <a href="https://github.com/WXPD-Sales/BlurBackground"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://wxpd-sales.github.io/WebexMeetingDemo/">View Demo</a>
+    <a href="https://wxpd-sales.github.io/BlurBackground/">View Demo</a>
     ·
     <a href="https://github.com/WXPD-Sales/BlurBackground/issues">Report Bug</a>
     ·
