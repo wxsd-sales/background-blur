@@ -14,28 +14,24 @@ const Media =  (props: Props) => {
   const videoHeight = "180px";
   const videoWidth = "320px";
   const {meeting} = props;
-  const meetingIsActive = meeting.remoteStream !== null;
-  const [videoIsLoaded, updateVideoIsLoaded] = useState(false);
+  const remoteMediaIsAvailable = meeting.remoteStream !== null;
+  const localMediaIsAvailable = meeting.localStream !== null;
   const [localVideo, updateLocalVideo] = useState({} as HTMLVideoElement);
   const [remoteVideo, updateRemoteVideo] = useState({} as HTMLVideoElement);
   const [canvas, updateCanvas] = useState({} as HTMLCanvasElement);
   
   useEffect(() => {
-    if(meetingIsActive) {
+    if(remoteMediaIsAvailable) {
       remoteVideo.srcObject = meeting.remoteStream;
     }
 
-  }, [meeting.remoteStream]);
+  }, [meeting.remoteStream, meeting.localStream]);
 
   const getLocalStream = (node) => {
     if (node !== null && meeting.localStream instanceof MediaStream) {
       updateLocalVideo(node);
       node.srcObject = meeting.localStream;
     }
-  }
-
-  const handleLoadedVideo = (event) => {
-    updateVideoIsLoaded(true);
   }
 
  const getRemoteStream = (node) =>{
@@ -78,36 +74,46 @@ const Media =  (props: Props) => {
     }
   }
 
+  const renderLocalStream = () => 
+    localMediaIsAvailable ? <div>
+      <div className="localVideo">
+        <video 
+          ref={getLocalStream} 
+          playsInline 
+          autoPlay 
+          width={videoWidth} 
+          height={videoHeight}
+        />
+      </div>
+      <canvas
+        ref={getCanvas} 
+        width={videoWidth} 
+        height={videoHeight}
+      />
+    </div>: <div className="mediaMessage">Local media is not available!</div>
+  
+  const renderRemoteStream = () => 
+    <div>
+      <video 
+        ref={getRemoteStream} 
+        playsInline 
+        autoPlay 
+        width={videoWidth} 
+        height={videoHeight} 
+        hidden={!remoteMediaIsAvailable} /> 
+      {!remoteMediaIsAvailable && <div className="mediaMessage">Remote media is not available!</div>}
+    </div>
+    
     return (
       <div className="media" >
         <div className="screens">
           <div className="local">
             <h3>Local Stream</h3> 
-            <div>
-              <div className="localVideo">
-                <video 
-                  ref={getLocalStream} 
-                  playsInline 
-                  autoPlay 
-                  width={videoWidth} 
-                  height={videoHeight}
-                />
-              </div>
-              <canvas
-                ref={getCanvas} 
-                width={videoWidth} 
-                height={videoHeight}
-              />
-            </div>
+            {renderLocalStream()}
           </div>
           <div className="remote">
             <h3>Remote Stream</h3> 
-            <video 
-              ref={getRemoteStream} 
-              playsInline 
-              autoPlay 
-              width={videoWidth} 
-              height={videoHeight} />
+            {renderRemoteStream()}
           </div>
         </div>
         <Controls 

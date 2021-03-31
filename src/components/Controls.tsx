@@ -104,12 +104,12 @@ const Controls = (props: Props) => {
       props.updateLocalStream(null);
       props.updateRemoteStream(null);
 
-      updateDisableLeave(false);
+      updateDisableLeave(true);
       updateDisableBlur(true);
       updateDisableJoin(true);
     } catch (e) {
       console.log(e)
-      updateDisableLeave(true);
+      updateDisableLeave(false);
     }
   };
 

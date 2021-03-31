@@ -112,9 +112,17 @@ const Inputs =  (props: Props) => {
     }
   }
 
-  const setMedia = (media) => {
+  const startMedia = (media) => {
     if(media.type === 'remoteVideo') {
       props.updateRemoteStream(media.stream);
+    }
+  }
+
+  const stopMedia = (media) => {
+    if(media.type === 'remoteVide') {
+      props.updateRemoteStream(null);
+    } else if(media.type === 'localMedia') {
+      props.updateLocalStream(null);
     }
   }
 
@@ -125,8 +133,9 @@ const Inputs =  (props: Props) => {
       const meeting = await webexMeetings.create(dest);
       props.updateSDKMeeting(meeting);
 
-      meeting.on('media:ready', (media) => setMedia(media));
-      
+      meeting.on('media:ready', (media) => startMedia(media));
+      meeting.on('media:stopped', (media) => stopMedia(media));
+
       const [localStream, localShare] = await meeting.getMediaStreams(MEDIA_SETTINGS);
       props.updateLocalStream(localStream);
 

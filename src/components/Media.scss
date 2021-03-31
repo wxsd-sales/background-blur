@@ -11,6 +11,10 @@
     align-items: center;
     flex-direction: column;
     margin-right: 1rem;
+
+    .localVideo {
+      position: absolute;
+    }
   }
 
   .remote {
@@ -21,9 +25,12 @@
     margin-left: 1rem;
   }
 
-  .local {
-    .localVideo {
-      position: absolute;
-    }
+  .mediaMessage {
+    display: flex;
+    width: 20rem;
+    height: 11.25rem;
+    justify-content: center;
+    align-items: center;
+    color: $red;
   }
 }
