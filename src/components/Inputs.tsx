@@ -142,8 +142,13 @@ const Inputs =  (props: Props) => {
       props.isBlurButtonDisabled(false);
       updateDisableCreate(false);
     } catch (e) {
-      console.log(e)
-      updateDestMessage({message: 'Please input a valid meeting destination!', type: 'error'});
+      let error = {message: 'Please input a valid meeting destination!', type: 'error'};
+
+      if(e.message === "Cannot read property 'split' of null") {
+        error = {message: 'Please grant audio & video permission to application', type: 'error'};
+      }
+
+      updateDestMessage(error);
       updateDisableCreate(true);
       props.isBlurButtonDisabled(true);
     }
