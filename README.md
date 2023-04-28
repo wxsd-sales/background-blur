@@ -1,10 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -23,6 +16,8 @@
     <a href="https://github.com/WXSD-Sales/BlurBackground/issues">Request Feature</a>
   </p>
 </p>
+
+*_Everything included is for demo and Proof of Concept purposes only. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for. These demos are for Cisco Webex usecases, but are not Official Cisco Webex Branded demos._
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -54,7 +49,7 @@
 
 In this demo we tried to use third party library [Tensorflow](https://www.tensorflow.org/tfx) and one of it's models [bodyPix](https://blog.tensorflow.org/2019/11/updated-bodypix-2.html)
 
-### Built With
+### Dependencies
 
 This demo is built with bunch of latest technologies offered by Webex and Tensorflow!
 
